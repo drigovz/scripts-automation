@@ -15,6 +15,13 @@ if [%aplicacao%] == [] (
 
     cd %aplicacao%
 
+    rem adicinando um arquivo global.json
+    echo { > global.json
+    echo   "sdk": { >> global.json
+    echo     "version": "3.1.405" >> global.json
+    echo   } >> global.json
+    echo } >> global.json
+
     rem criando a solution
     dotnet new sln -n %aplicacao%
 
@@ -270,7 +277,7 @@ if [%aplicacao%] == [] (
     echo " ====================== Projetos criados ====================== "
 
     rem abrindo o projeto no vs code 
-    code .
+    .\%aplicacao%.sln
 )
 
-exit
+taskkill /F /IM cmd.exe
