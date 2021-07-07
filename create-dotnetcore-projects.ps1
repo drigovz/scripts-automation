@@ -271,7 +271,9 @@ else {
 
     # open project on Visual Studio
     $solutionFinished = -join($appName, ".sln")
-    .\$solutionFinished
+    start $solutionFinished
 
     exit 
 }
+
+exit
